@@ -39,6 +39,7 @@ componentWillMount() {
 }
 // 2.3
 componentDidMount() {
+  console.log(this.state.redirect)
   const { prevLocation } = this.state.redirect.state || {prevLocation: { pathname: '/dashboard' } };
   if (prevLocation && this.state.isLoggedIn) {
     return this.props.history.push(prevLocation);
@@ -103,7 +104,7 @@ handleName(e) {
   let value = e.target.value;
   this.setState(prevState => ({
     user: {
-      ...prevState.user, first_name: value
+      ...prevState.user, name: value,
     }
   }));
 }
